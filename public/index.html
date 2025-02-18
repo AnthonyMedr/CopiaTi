@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Manutenção</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gerenciamento de Computadores</h1>
+
+    <!-- Formulário para adicionar computador -->
+    <h2>Adicionar Computador</h2>
+    <form id="form-computador">
+        <input type="text" id="nome" placeholder="Nome do computador" required>
+        <input type="text" id="ip" placeholder="IP" required>
+        <input type="text" id="mac" placeholder="MAC" required>
+        <input type="text" id="descricao" placeholder="Localização" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista de Computadores</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>IP</th>
+                <th>MAC</th>
+                <th>Localização</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="computadores-lista">
+            <!-- Aqui será carregada a lista via JS -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
