@@ -36,6 +36,32 @@
         </tbody>
     </table>
 
+    <h2>Chamados de Manutenção</h2>
+<table id="chamados-lista">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Computador</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Data de Abertura</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<h3>Abrir Novo Chamado</h3>
+<form id="form-chamado">
+    <label>Computador:</label>
+    <select id="computador-id"></select>
+    
+    <label>Descrição:</label>
+    <input type="text" id="chamado-descricao" required>
+
+    <button type="submit">Abrir Chamado</button>
+</form>
+
     <script src="script.js"></script>
 </body>
 </html>

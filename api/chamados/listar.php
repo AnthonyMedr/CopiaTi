@@ -1,13 +1,13 @@
 <?php
 require '../config.php';
+header("Content-Type: application/json");
 
-header('Content-Type: application/json');
+$sql = "SELECT c.id, c.descricao, c.status, c.data_abertura, c.data_fechamento, 
+               p.nome AS computador 
+        FROM chamados c
+        JOIN computadores p ON c.computador_id = p.id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$chamados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-try {
-    $stmt = $pdo->query("SELECT * FROM chamados ORDER BY criado_em DESC");
-    $chamados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($chamados);
-} catch (PDOException $e) {
-    echo json_encode(['erro' => $e->getMessage()]);
-}
-?>
+echo json_encode($chamados);

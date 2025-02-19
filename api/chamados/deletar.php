@@ -1,21 +1,17 @@
 <?php
 require '../config.php';
-
-header('Content-Type: application/json');
+header("Content-Type: application/json");
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!isset($data['id'])) {
-    echo json_encode(['erro' => 'ID não informado']);
+if (!isset($data["id"])) {
+    echo json_encode(["erro" => "ID do chamado é necessário"]);
     exit;
 }
 
-try {
-    $stmt = $pdo->prepare("DELETE FROM chamados WHERE id = :id");
-    $stmt->execute([':id' => $data['id']]);
+$id = $data["id"];
+$sql = "DELETE FROM chamados WHERE id = :id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(["id" => $id]);
 
-    echo json_encode(['mensagem' => 'Chamado removido com sucesso']);
-} catch (PDOException $e) {
-    echo json_encode(['erro' => $e->getMessage()]);
-}
-?>
+echo json_encode(["mensagem" => "Chamado excluído com sucesso!"]);
